@@ -1,0 +1,52 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <ion-label>
+        Device :
+      </ion-label>
+  </ion-card>
+
+  <ion-card *ngFor="let item of data">
+    <ion-item>
+      <div class="ion-text-capitalize">
+        <ion-label>{{item.device_id}}</ion-label>
+      </div>
+    </ion-item>
+
+    <ion-card-content *ngIf="item.receivedString === '0'">
+        <ion-text>
+            <h2>Trash Empty</h2>
+        </ion-text>
+        <div class="battery">
+            <div class="battery-level" style="height:18%;"></div>
+        </div>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="item.receivedString === '1'">
+        <ion-text>
+            <h2>Trash in Medium Level</h2>
+        </ion-text>
+        <div class="battery">
+            <div class="battery-level warn" style="height:50%;"></div>
+        </div>
+    </ion-card-content>
+
+    <ion-card-content *ngIf="item.receivedString === '2'">
+        <ion-text>
+            <h2>Trash in High Level</h2>
+        </ion-text>
+        <div class="battery">
+            <div class="battery-level alert" style="height:100%;"></div>
+        </div>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-text>
+        <h2>Time :</h2>
+      </ion-text>
+      <ion-datetime display-format= "MMMM DD, YYYY HH:mm" [(ngModel)]="item.time" readonly></ion-datetime>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

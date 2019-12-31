@@ -1,0 +1,7 @@
+{
+  "name": "tramasApps",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
